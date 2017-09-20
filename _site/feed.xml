@@ -6,9 +6,51 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Sep 2017 22:30:38 +0200</pubDate>
-    <lastBuildDate>Wed, 20 Sep 2017 22:30:38 +0200</lastBuildDate>
+    <pubDate>Wed, 20 Sep 2017 22:37:02 +0200</pubDate>
+    <lastBuildDate>Wed, 20 Sep 2017 22:37:02 +0200</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>tp1 AIC - introduction au TAL</title>
+        <description>&lt;p&gt;Vous disposez d’un (tout petit) &lt;a href=&quot;https://perso.limsi.fr/annlor/enseignement/tbbt.tar.gz&quot;&gt;corpus de sous-titres de séries&lt;/a&gt;, aux formats:
+- srt: sous-titres avec indications temporelles
+- xml: fichier XML regroupant les phrases, tokenisé
+- txt: fichier texte (une phrase par ligne)&lt;/p&gt;
+
+&lt;p&gt;L’objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie &lt;a href=&quot;https://stanfordnlp.github.io/CoreNLP/&quot;&gt;CoreNLP&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Vous testerez donc les analyses suivantes:
+- segmentation en mots (tokenisation)
+- segmentation en phrases
+- annotation en parties du discours ou étiquetage morpho-syntaxique (PoS tagging)
+- lemmatisation
+- reconnaissance d’entités nommées
+- analyse syntaxique en constituants (constituency parsing)
+- analyse syntaxique en dépendances (dependency parsing)
+- résolution de coréférence&lt;/p&gt;
+
+&lt;p&gt;À partir du corpus proposé, vous devrez définir un objectif d’analyse de ce corpus, et déterminer quelles sont les analyses TAL pertinentes pour le réaliser. L’objectif doit bien évidemment pouvoir s’appuyer sur l’analyse du corpus.&lt;/p&gt;
+
+&lt;p&gt;Voici quelques exemples d’objectifs:
+- déterminer quels sont les qualificatifs principaux attribués au personnage de Sheldon Cooper;
+- déterminer quelle est la couleur de vêtements la plus souvent citée;
+- établir les relations sociales ou familiales (ami, soeur…) entre les personnages évoqués…&lt;/p&gt;
+
+&lt;p&gt;Il n’est pas (nécessairement) demandé d’implémenter un programme fonctionnel, mais seulement de déterminer quelles sont les informations utiles pour l’objectif choisi.&lt;/p&gt;
+
+&lt;p&gt;Ce TP fera l’objet d’un mini-compte rendu (format .txt) que vous &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#110;&amp;#110;&amp;#108;&amp;#111;&amp;#114;&amp;#064;&amp;#108;&amp;#105;&amp;#109;&amp;#115;&amp;#105;&amp;#046;&amp;#102;&amp;#114;&quot;&gt;m’enverrez&lt;/a&gt; avec comme sujet [MasterAIC] Compte rendu TP1.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 20 Sep 2017 22:21:46 +0200</pubDate>
+        <link>http://yourdomain.com/ens/aic/2017/09/20/aic-tp1.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/ens/aic/2017/09/20/aic-tp1.html</guid>
+        
+        
+        <category>ens</category>
+        
+        <category>aic</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>

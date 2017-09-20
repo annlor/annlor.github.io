@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Your awesome title</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>tp1 AIC - introduction au TAL</title>
+  <meta name="description" content="Vous disposez d’un (tout petit) corpus de sous-titres de séries, aux formats:- srt: sous-titres avec indications temporelles- xml: fichier XML regroupant les...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://yourdomain.com/">
+  <link rel="canonical" href="http://yourdomain.com/ens/aic/2017/09/20/aic-tp1.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="http://yourdomain.com/feed.xml">
 </head>
 
@@ -55,33 +54,46 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">tp1 AIC - introduction au TAL</h1>
+    <p class="post-meta"><time datetime="2017-09-20T22:21:46+02:00" itemprop="datePublished">Sep 20, 2017</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Sep 20, 2017</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>Vous disposez d’un (tout petit) <a href="https://perso.limsi.fr/annlor/enseignement/tbbt.tar.gz">corpus de sous-titres de séries</a>, aux formats:
+- srt: sous-titres avec indications temporelles
+- xml: fichier XML regroupant les phrases, tokenisé
+- txt: fichier texte (une phrase par ligne)</p>
 
-        <h2>
-          <a class="post-link" href="/ens/aic/2017/09/20/aic-tp1.html">tp1 AIC - introduction au TAL</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Sep 20, 2017</span>
+<p>L’objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie <a href="https://stanfordnlp.github.io/CoreNLP/">CoreNLP</a>.</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2017/09/20/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>Vous testerez donc les analyses suivantes:
+- segmentation en mots (tokenisation)
+- segmentation en phrases
+- annotation en parties du discours ou étiquetage morpho-syntaxique (PoS tagging)
+- lemmatisation
+- reconnaissance d’entités nommées
+- analyse syntaxique en constituants (constituency parsing)
+- analyse syntaxique en dépendances (dependency parsing)
+- résolution de coréférence</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>À partir du corpus proposé, vous devrez définir un objectif d’analyse de ce corpus, et déterminer quelles sont les analyses TAL pertinentes pour le réaliser. L’objectif doit bien évidemment pouvoir s’appuyer sur l’analyse du corpus.</p>
 
-</div>
+<p>Voici quelques exemples d’objectifs:
+- déterminer quels sont les qualificatifs principaux attribués au personnage de Sheldon Cooper;
+- déterminer quelle est la couleur de vêtements la plus souvent citée;
+- établir les relations sociales ou familiales (ami, soeur…) entre les personnages évoqués…</p>
+
+<p>Il n’est pas (nécessairement) demandé d’implémenter un programme fonctionnel, mais seulement de déterminer quelles sont les informations utiles pour l’objectif choisi.</p>
+
+<p>Ce TP fera l’objet d’un mini-compte rendu (format .txt) que vous <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#097;&#110;&#110;&#108;&#111;&#114;&#064;&#108;&#105;&#109;&#115;&#105;&#046;&#102;&#114;">m’enverrez</a> avec comme sujet [MasterAIC] Compte rendu TP1.</p>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>
