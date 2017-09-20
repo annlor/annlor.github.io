@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Enseignements
+title: About
 permalink: /about/
 ---
 
