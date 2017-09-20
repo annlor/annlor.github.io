@@ -9,22 +9,26 @@ Vous disposez d'un (tout petit) corpus de sous-titres de séries, aux formats:
 - xml: fichier XML regroupant les phrases, tokenisé
 - txt: fichier texte (une phrase par ligne)
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie CoreNLP (https://stanfordnlp.github.io/CoreNLP/).
 
-Jekyll also offers powerful support for code snippets:
+Vous testerez donc les analyses suivantes:
+- segmentation en mots (tokenisation)
+- segmentation en phrases
+- annotation en parties du discours ou étiquetage morpho-syntaxique (PoS tagging)
+- lemmatisation
+- reconnaissance d'entités nommées
+- analyse syntaxique en constituants (constituency parsing)
+- analyse syntaxique en dépendances (dependency parsing)
+- résolution de coréférence
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+À partir du corpus proposé, vous devrez définir un objectif d'analyse, et déterminer quelles sont les analyses TAL pertinentes pour le réaliser.
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+Voici quelques exemples d'objectifs:
+- déterminer quels sont les qualificatifs principaux attribués au personnage de Sheldon Cooper;
+- déterminer quelle est la couleur de vêtements la plus souvent citée;
+- établir les relations sociales ou familiales (ami, soeur...) entre les personnages évoqués...
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Ce TP fera l'objet d'un mini-compte rendu que vous enverrez à annlor@limsi.fr avec comme sujet [MasterAIC] Compte rendu TP1.
+
+
