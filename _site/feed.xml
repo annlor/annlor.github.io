@@ -4,10 +4,10 @@
     <title>Anne-Laure Ligozat</title>
     <description>Pages d&#39;enseignement (pour l&#39;instant)
 </description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Sep 2017 21:05:31 +0200</pubDate>
-    <lastBuildDate>Wed, 20 Sep 2017 21:05:31 +0200</lastBuildDate>
+    <link>http://yourdomain.com./</link>
+    <atom:link href="http://yourdomain.com./feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 20 Sep 2017 21:10:40 +0200</pubDate>
+    <lastBuildDate>Wed, 20 Sep 2017 21:10:40 +0200</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -42,8 +42,8 @@
 
 </description>
         <pubDate>Wed, 20 Sep 2017 15:27:46 +0200</pubDate>
-        <link>http://yourdomain.com/ens/aic/2017/09/20/aic-tp1.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/ens/aic/2017/09/20/aic-tp1.html</guid>
+        <link>http://yourdomain.com./ens/aic/2017/09/20/aic-tp1.html</link>
+        <guid isPermaLink="true">http://yourdomain.com./ens/aic/2017/09/20/aic-tp1.html</guid>
         
         
         <category>ens</category>
@@ -57,8 +57,8 @@
         <description>&lt;h1 id=&quot;premier-cours-introduction-au-traitement-automatique-des-languesdocsrei1introtalalpdf&quot;&gt;Premier cours: &lt;a href=&quot;../../../../../docs/REI_1_Intro_TAL_AL.pdf&quot;&gt;Introduction au Traitement Automatique des Langues&lt;/a&gt;&lt;/h1&gt;
 </description>
         <pubDate>Wed, 20 Sep 2017 15:27:46 +0200</pubDate>
-        <link>http://yourdomain.com/ens/aic/2017/09/20/aic-c1.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/ens/aic/2017/09/20/aic-c1.html</guid>
+        <link>http://yourdomain.com./ens/aic/2017/09/20/aic-c1.html</link>
+        <guid isPermaLink="true">http://yourdomain.com./ens/aic/2017/09/20/aic-c1.html</guid>
         
         
         <category>ens</category>
