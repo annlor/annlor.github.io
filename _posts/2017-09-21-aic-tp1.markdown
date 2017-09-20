@@ -22,12 +22,14 @@ Vous testerez donc les analyses suivantes:
 - analyse syntaxique en dépendances (dependency parsing)
 - résolution de coréférence
 
-À partir du corpus proposé, vous devrez définir un objectif d'analyse, et déterminer quelles sont les analyses TAL pertinentes pour le réaliser.
+À partir du corpus proposé, vous devrez définir un objectif d'analyse de ce corpus, et déterminer quelles sont les analyses TAL pertinentes pour le réaliser. L'objectif doit bien évidemment pouvoir s'appuyer sur l'analyse du corpus.
 
 Voici quelques exemples d'objectifs:
 - déterminer quels sont les qualificatifs principaux attribués au personnage de Sheldon Cooper;
 - déterminer quelle est la couleur de vêtements la plus souvent citée;
 - établir les relations sociales ou familiales (ami, soeur...) entre les personnages évoqués...
+
+Il n'est pas (nécessairement) demandé d'implémenter un programme fonctionnel, mais seulement de déterminer quelles sont les informations utiles pour l'objectif choisi.
 
 Ce TP fera l'objet d'un mini-compte rendu que vous [m'enverrez] (annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.
 
