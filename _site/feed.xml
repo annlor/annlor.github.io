@@ -4,20 +4,20 @@
     <title>Anne-Laure Ligozat</title>
     <description>Pages d&#39;enseignement (pour l&#39;instant)
 </description>
-    <link>http://yourdomain.com./</link>
-    <atom:link href="http://yourdomain.com./feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Sep 2017 21:15:47 +0200</pubDate>
-    <lastBuildDate>Wed, 20 Sep 2017 21:15:47 +0200</lastBuildDate>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 20 Sep 2017 19:48:49 +0200</pubDate>
+    <lastBuildDate>Wed, 20 Sep 2017 19:48:49 +0200</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>tp1 AIC - introduction au TAL</title>
-        <description>&lt;p&gt;Vous disposez d’un (tout petit) &lt;a href=&quot;https://perso.limsi.fr/annlor/enseignement/tbbt.tar.gz&quot;&gt;corpus de sous-titres de séries&lt;/a&gt;, aux formats:
+        <description>&lt;p&gt;Vous disposez d’un (tout petit) corpus de sous-titres de séries, aux formats:
 - srt: sous-titres avec indications temporelles
 - xml: fichier XML regroupant les phrases, tokenisé
 - txt: fichier texte (une phrase par ligne)&lt;/p&gt;
 
-&lt;p&gt;L’objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie &lt;a href=&quot;https://stanfordnlp.github.io/CoreNLP/&quot;&gt;CoreNLP&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;L’objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie [CoreNLP] (https://stanfordnlp.github.io/CoreNLP/).&lt;/p&gt;
 
 &lt;p&gt;Vous testerez donc les analyses suivantes:
 - segmentation en mots (tokenisation)
@@ -38,7 +38,11 @@
 
 &lt;p&gt;Il n’est pas (nécessairement) demandé d’implémenter un programme fonctionnel, mais seulement de déterminer quelles sont les informations utiles pour l’objectif choisi.&lt;/p&gt;
 
+<<<<<<< HEAD
 &lt;p&gt;Ce TP fera l’objet d’un mini-compte rendu que vous &lt;a href=&quot;annlor@limsi.fr&quot;&gt;m’enverrez&lt;/a&gt; avec comme sujet [MasterAIC] Compte rendu TP1.&lt;/p&gt;
+=======
+&lt;p&gt;Ce TP fera l’objet d’un mini-compte rendu que vous [m’enverrez] (annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.&lt;/p&gt;
+>>>>>>> parent of 070f54b... tp1 ajout mailto
 
 </description>
         <pubDate>Wed, 20 Sep 2017 15:27:46 +0200</pubDate>
