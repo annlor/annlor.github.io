@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "c1 AIC - introduction au TAL"
+date:   2017-09-20 15:27:46 +0200
+categories: ens aic
+---
+
+#Premier cours: [Introduction au Traitement Automatique des Langues](../../../../../docs/REI_1_Intro_TAL_AL.pdf)
