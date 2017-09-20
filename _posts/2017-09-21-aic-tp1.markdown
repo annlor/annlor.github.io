@@ -31,6 +31,6 @@ Voici quelques exemples d'objectifs:
 
 Il n'est pas (nécessairement) demandé d'implémenter un programme fonctionnel, mais seulement de déterminer quelles sont les informations utiles pour l'objectif choisi.
 
-Ce TP fera l'objet d'un mini-compte rendu que vous [m'enverrez](mailto:annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.
+Ce TP fera l'objet d'un mini-compte rendu que vous [m'enverrez](annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.
 
 
