@@ -4,7 +4,7 @@ title:  "tp1 AIC - introduction au TAL"
 date:   2017-09-20 15:27:46 +0200
 categories: ens aic
 ---
-Vous disposez d'un (tout petit) corpus de sous-titres de séries, aux formats:
+Vous disposez d'un (tout petit) [corpus de sous-titres de séries](https://perso.limsi.fr/annlor/enseignement/tbbt.tar.gz), aux formats:
 - srt: sous-titres avec indications temporelles
 - xml: fichier XML regroupant les phrases, tokenisé
 - txt: fichier texte (une phrase par ligne)
