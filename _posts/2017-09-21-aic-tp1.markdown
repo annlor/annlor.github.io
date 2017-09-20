@@ -10,7 +10,7 @@ Vous disposez d'un (tout petit) corpus de sous-titres de séries, aux formats:
 - txt: fichier texte (une phrase par ligne)
 
 
-L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie CoreNLP (https://stanfordnlp.github.io/CoreNLP/).
+L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie [CoreNLP] (https://stanfordnlp.github.io/CoreNLP/).
 
 Vous testerez donc les analyses suivantes:
 - segmentation en mots (tokenisation)
@@ -29,6 +29,6 @@ Voici quelques exemples d'objectifs:
 - déterminer quelle est la couleur de vêtements la plus souvent citée;
 - établir les relations sociales ou familiales (ami, soeur...) entre les personnages évoqués...
 
-Ce TP fera l'objet d'un mini-compte rendu que vous enverrez à annlor@limsi.fr avec comme sujet [MasterAIC] Compte rendu TP1.
+Ce TP fera l'objet d'un mini-compte rendu que vous [m'enverrez] (annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.
 
 
