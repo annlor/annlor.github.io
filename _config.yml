@@ -10,7 +10,7 @@ title: Anne-Laure Ligozat
 email: annlor[arobase]limsi[point]com
 description: > # this means to ignore newlines until "baseurl:"
   Pages d'enseignement (pour l'instant)
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "." # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 #github_username:  jekyll
