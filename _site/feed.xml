@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Sep 2017 21:33:48 +0200</pubDate>
-    <lastBuildDate>Wed, 20 Sep 2017 21:33:48 +0200</lastBuildDate>
+    <pubDate>Wed, 20 Sep 2017 21:54:08 +0200</pubDate>
+    <lastBuildDate>Wed, 20 Sep 2017 21:54:08 +0200</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -38,7 +38,7 @@
 
 &lt;p&gt;Il n’est pas (nécessairement) demandé d’implémenter un programme fonctionnel, mais seulement de déterminer quelles sont les informations utiles pour l’objectif choisi.&lt;/p&gt;
 
-&lt;p&gt;Ce TP fera l’objet d’un mini-compte rendu que vous &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#110;&amp;#110;&amp;#108;&amp;#111;&amp;#114;&amp;#064;&amp;#108;&amp;#105;&amp;#109;&amp;#115;&amp;#105;&amp;#046;&amp;#102;&amp;#114;&quot;&gt;m’enverrez&lt;/a&gt; avec comme sujet [MasterAIC] Compte rendu TP1.&lt;/p&gt;
+&lt;p&gt;Ce TP fera l’objet d’un mini-compte rendu (format .txt) que vous &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#110;&amp;#110;&amp;#108;&amp;#111;&amp;#114;&amp;#064;&amp;#108;&amp;#105;&amp;#109;&amp;#115;&amp;#105;&amp;#046;&amp;#102;&amp;#114;&quot;&gt;m’enverrez&lt;/a&gt; avec comme sujet [MasterAIC] Compte rendu TP1.&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 20 Sep 2017 15:27:46 +0200</pubDate>
