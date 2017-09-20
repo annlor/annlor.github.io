@@ -4,13 +4,13 @@ title:  "tp1 AIC - introduction au TAL"
 date:   2017-09-20 15:27:46 +0200
 categories: ens aic
 ---
-Vous disposez d'un (tout petit) corpus de sous-titres de séries, aux formats:
+Vous disposez d'un (tout petit) [corpus de sous-titres de séries](https://perso.limsi.fr/annlor/enseignement/tbbt.tar.gz), aux formats:
 - srt: sous-titres avec indications temporelles
 - xml: fichier XML regroupant les phrases, tokenisé
 - txt: fichier texte (une phrase par ligne)
 
 
-L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie [CoreNLP] (https://stanfordnlp.github.io/CoreNLP/).
+L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie [CoreNLP](https://stanfordnlp.github.io/CoreNLP/).
 
 Vous testerez donc les analyses suivantes:
 - segmentation en mots (tokenisation)
@@ -31,6 +31,6 @@ Voici quelques exemples d'objectifs:
 
 Il n'est pas (nécessairement) demandé d'implémenter un programme fonctionnel, mais seulement de déterminer quelles sont les informations utiles pour l'objectif choisi.
 
-Ce TP fera l'objet d'un mini-compte rendu que vous [m'enverrez] (annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.
+Ce TP fera l'objet d'un mini-compte rendu que vous [m'enverrez](annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.
 
 
