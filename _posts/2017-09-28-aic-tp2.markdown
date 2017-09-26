@@ -22,6 +22,28 @@ puis décompresser l'archive:
 `tar zxvf wapiti-1.5.0.tar.gz`
 
 et installer wapiti:
-`cd wapiti-1.5.0/`
+`cd wapiti-1.5.0/` puis `make`
 
-`make`
+Anglais
+-------
+ Deux corpus vous sont fournis:
+- un corpus d'entraînement appelé `eng.train`
+- un corpus de test appelé `eng.test`
+
+Chacun de ces corpus est au format [Conll2003](http://www.cnts.ua.ac.be/conll2003/ner/): ils contiennent quatre colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. Les colonnes correspondent dans l'ordre au mot, à la catégorie morphosyntaxique (pos tag, obtenue avec l'analyseur MBT tagger), à l'appartenance à un groupe syntaxique (chunk) et la dernière colonne représente l'étiquette d'entité nommée. 
+	
+
+Les étiquettes de chunk et d'entité nommée sont au format I-TYPE qui indique que le mot fait partie d'une entité de type TYPE. Si deux entités de même type se suivent, le premier mot de la seconde aura pour étiquette B-TYPE pour indiquer qu'il s'agit d'une nouvelle entité. L'étiquette O indique que le mot ne fait pas partie d'une entité.
+
+Exemple:
+` U.N.         NNP  I-NP  I-ORG
+official     NN   I-NP  O
+Ekeus        NNP  I-NP  I-PER
+heads        VBZ  I-VP  O
+for          IN   I-PP  O
+Baghdad      NNP  I-NP  I-LOC
+.            .    O     O`
+
+Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu et entité nommée diverse n'appartenant pas aux catégories précédentes (nationalité, titre d'œuvre, événement…).
+
+De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://www.cnts.ua.ac.be/conll2003/pdf/14247tjo.pdf). 
