@@ -5,12 +5,12 @@ date:   2017-09-28 10:45:00 +0200
 categories: ens aic
 ---
 
-#Objectif
+# Objectif
 
 
 L'objectif de ce TP sera de développer un système de reconnaissance d'entités nommées pour l'anglais et/ou pour le français, fondé sur l'outil [wapiti](http://wapiti.limsi.fr/).
 
-#Ressources
+# Ressources
 
 Les corpus sont dans ....
 
@@ -24,7 +24,7 @@ puis décompresser l'archive:
 et installer wapiti:
 `cd wapiti-1.5.0/` puis `make`
 
-##Anglais
+## Anglais
 
 Deux corpus vous sont fournis:
 - un corpus d'entraînement appelé `eng.train`
@@ -51,7 +51,7 @@ Les catégories d'entités nommées sont les suivantes: personne, organisation, 
 De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/docs/conll2003_campaign.pdf).
 
 
-##Français
+## Français
 
 Deux corpus vous sont fournis:
 - un corpus d'entraînement appelé `fra.train`
@@ -129,7 +129,7 @@ ou, si le fichier de test est déjà annoté et qu'on veut calculer les performa
 
 En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce cas) et par token (par mot dans ce cas), puis les métriques de rappel, précision et f-mesure pour chaque type d'étiquette.
 
-#Questions
+# Questions
 
 
 - Testez les performances de l'annotation en entités nommées avec un fichier de patron de base (comme [celui-ci](https://annlor.github.io/docs/pattern_basic.txy.tar.gz)).
