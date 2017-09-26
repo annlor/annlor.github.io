@@ -131,7 +131,7 @@ En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce 
   - ajoutez par exemple l'étiquette morpho-syntaxique si vous travaillez sur l'anglais
   - ajoutez des expressions régulières (mot commençant par une majuscule, entièrement en majuscule…)
 - Enrichissez les corpus avec des ressources extérieures: catégories morphosyntaxiques venant d'un autre étiqueteur, listes d'entités ou de déclencheurs (M./Mme)…
-  - listes de [Geonames](http://www.geonames.org/) par exemple: [http://download.geonames.org/export/dump/]
+  - listes de [Geonames](http://www.geonames.org/) par exemple: http://download.geonames.org/export/dump/
   - utilisation de l'étiquetage de nltk ou de Stanford CoreNLP
   - Vous pouvez vous inspirer d'articles récents du domaine: http://www.anthology.aclweb.org/I/I11/I11-1142.pdf, http://www.aclweb.org/anthology/F14-3014, https://noisy-text.github.io/pdf/WNUT09.pdf
 - Comparez vos résultats avec ceux de nltk ou de Stanford CoreNLP
