@@ -36,17 +36,18 @@ Chacun de ces corpus est au format [Conll2003](http://www.cnts.ua.ac.be/conll200
 Les étiquettes de chunk et d'entité nommée sont au format I-TYPE qui indique que le mot fait partie d'une entité de type TYPE. Si deux entités de même type se suivent, le premier mot de la seconde aura pour étiquette B-TYPE pour indiquer qu'il s'agit d'une nouvelle entité. L'étiquette O indique que le mot ne fait pas partie d'une entité.
 
 Exemple:
-`U.N.         NNP  I-NP  I-ORG
+```U.N.         NNP  I-NP  I-ORG
 official     NN   I-NP  O
 Ekeus        NNP  I-NP  I-PER
 heads        VBZ  I-VP  O
 for          IN   I-PP  O
 Baghdad      NNP  I-NP  I-LOC
-.            .    O     O`
+.            .    O     O```
 
 Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu et entité nommée diverse n'appartenant pas aux catégories précédentes (nationalité, titre d'œuvre, événement…).
 
-De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://www.cnts.ua.ac.be/conll2003/pdf/14247tjo.pdf).
+De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/conll2003_campaign.pdf).
+
 
 Français
 --------
@@ -59,7 +60,7 @@ Chacun de ces corpus contient deux colonnes séparées par des espaces. Chaque m
 Les étiquettes ​de chunk et d'entité nommée sont au format BIO qui indique que le mot est respectivement au début, à l'intérieur ou à l'extérieur d'une entité de type TYPE.
 
 Exemple:
-`
+```
 le O
 ministre b-func
 des i-func
@@ -73,7 +74,7 @@ augmentation O
 des O
 effectifs O
 . O
-`
+```
 Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu, fonctions et productions humaines (titre d'œuvre, de marque, logiciel...).
 
 Le corpus et les annotations (qui ont été simplifiées pour créer les fichiers fournis) proviennent de la campagne d'évaluation de Quaero; de nombreuses informations complémentaires sont données dans le [guide d'annotation correspondant](https://annlor.github.io/docs/tp:quaero-guide-annotation-2011.pdf). 
