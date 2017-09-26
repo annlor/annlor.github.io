@@ -12,17 +12,9 @@ L'objectif de ce TP sera de développer un système de reconnaissance d'entités
 
 # Ressources
 
-Les corpus sont dans ....
+Les corpus sont dans `/public/master_aic_rei/tp2/corpusEN`
 
-
-Pour télécharger wapiti:
-`wget https://wapiti.limsi.fr/wapiti-1.5.0.tar.gz`
-
-puis décompresser l'archive:
-`tar zxvf wapiti-1.5.0.tar.gz`
-
-et installer wapiti:
-`cd wapiti-1.5.0/` puis `make`
+Wapiti est installé dans `/public/master_aic_rei/wapiti-1.5.0`
 
 ## Anglais
 
