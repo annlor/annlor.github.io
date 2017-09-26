@@ -82,6 +82,7 @@ La syntaxe générale est:
 
 ## Entraînement
 Pour entraîner wapiti sur un corpus:
+
 `./wapiti train -p fichier_de_patrons fichier_d'entrainement modele`
 
 Quelques options utiles:
@@ -113,6 +114,7 @@ Autres exemples:
 
 ## Test
 Pour annoter un corpus de test à partir du modèle créé:
+
 `./wapiti label -m modele fichier_de_test fichier_de_test_annote`
 
 ou, si le fichier de test est déjà annoté et qu'on veut calculer les performances de wapiti:
