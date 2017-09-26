@@ -22,7 +22,7 @@ Deux corpus vous sont fournis:
 - un corpus d'entraînement appelé `eng.train`
 - un corpus de test appelé `eng.test`
 
-Chacun de ces corpus est au format [Conll2003](http://www.cnts.ua.ac.be/conll2003/ner/): ils contiennent quatre colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. Les colonnes correspondent dans l'ordre au mot, à la catégorie morphosyntaxique (pos tag, obtenue avec l'analyseur MBT tagger), à l'appartenance à un groupe syntaxique (chunk) et la dernière colonne représente l'étiquette d'entité nommée. 
+Chacun de ces corpus est au format [Conll2003](https://www.clips.uantwerpen.be/conll2003/ner/): ils contiennent quatre colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. Les colonnes correspondent dans l'ordre au mot, à la catégorie morphosyntaxique (pos tag, obtenue avec l'analyseur MBT tagger), à l'appartenance à un groupe syntaxique (chunk) et la dernière colonne représente l'étiquette d'entité nommée. 
 	
 
 Les étiquettes de chunk et d'entité nommée sont au format I-TYPE qui indique que le mot fait partie d'une entité de type TYPE. Si deux entités de même type se suivent, le premier mot de la seconde aura pour étiquette B-TYPE pour indiquer qu'il s'agit d'une nouvelle entité. L'étiquette O indique que le mot ne fait pas partie d'une entité.
