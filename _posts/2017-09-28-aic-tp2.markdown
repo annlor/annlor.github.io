@@ -36,17 +36,19 @@ Chacun de ces corpus est au format [Conll2003](http://www.cnts.ua.ac.be/conll200
 Les étiquettes de chunk et d'entité nommée sont au format I-TYPE qui indique que le mot fait partie d'une entité de type TYPE. Si deux entités de même type se suivent, le premier mot de la seconde aura pour étiquette B-TYPE pour indiquer qu'il s'agit d'une nouvelle entité. L'étiquette O indique que le mot ne fait pas partie d'une entité.
 
 Exemple:
-```U.N.         NNP  I-NP  I-ORG
+```
+U.N.         NNP  I-NP  I-ORG
 official     NN   I-NP  O
 Ekeus        NNP  I-NP  I-PER
 heads        VBZ  I-VP  O
 for          IN   I-PP  O
 Baghdad      NNP  I-NP  I-LOC
-.            .    O     O```
+.            .    O     O
+```
 
 Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu et entité nommée diverse n'appartenant pas aux catégories précédentes (nationalité, titre d'œuvre, événement…).
 
-De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/conll2003_campaign.pdf).
+De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/docs/conll2003_campaign.pdf).
 
 
 Français
@@ -77,4 +79,39 @@ effectifs O
 ```
 Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu, fonctions et productions humaines (titre d'œuvre, de marque, logiciel...).
 
-Le corpus et les annotations (qui ont été simplifiées pour créer les fichiers fournis) proviennent de la campagne d'évaluation de Quaero; de nombreuses informations complémentaires sont données dans le [guide d'annotation correspondant](https://annlor.github.io/docs/tp:quaero-guide-annotation-2011.pdf). 
+Le corpus et les annotations (qui ont été simplifiées pour créer les fichiers fournis) proviennent de la campagne d'évaluation de Quaero; de nombreuses informations complémentaires sont données dans le [guide d'annotation correspondant](https://annlor.github.io/docs/quaero-guide-annotation-2011.pdf).
+
+# Utilisation de Wapiti
+
+Wapiti est une boîte à outil dédiée à la segmentation et à l'étiquetage de séquences développée au LIMSI, intégrant plusieurs modèles (Maxent, MEMM, CRF). Il met en œuvre plusieurs algorithmes standards et propose plusieurs méthodes de régularisation dans le but d’améliorer la performance de prédiction des modèles (sélection des traits pertinents, réduction du sur-apprentissage…). Son manuel est consultable à [cette page](https://wapiti.limsi.fr/manual.html) (vous êtes très fortement encouragés à lire le manuel avant de faire le TP.
+
+La syntaxe générale est:
+`wapiti mode [options] [input] [output]`
+
+## Entraînement
+Pour entraîner wapiti sur un corpus:
+`./wapiti train -p fichier_de_patrons fichier_d'entrainement modele`
+
+Quelques options utiles:
+- `-i`: nombre maximum d'itérations (par défaut infini, et utilise d'autres critères d'arrêt)
+- `-t`: nombre de threads à utiliser (par défaut, 1)
+
+## Patrons
+Les features sont définies par des patrons dont [la syntaxe est expliquée ici](https://wapiti.limsi.fr/manual.html#patterns).
+
+Globablement, le fichier de patron considère le token courant du fichier donné en entrée:
+```
+colonnes: 0            1    2
+          U.N.         NNP  I-NP  I-ORG
+          official     NN   I-NP  O
+          Ekeus        NNP  I-NP  I-PER   <<---- token courant
+          heads        VBZ  I-VP  O
+          for          IN   I-PP  O
+          Baghdad      NNP  I-NP  I-LOC
+          .            .    O     O
+```
+et indique les informations utilisées pour étiqueter ce token. Les informations sont référencées par leur position (ligne) par rapport au token courant, et leur type (colonne).
+
+Par exemple [-2,1] correspondra au token deux positions avant le token courant (U.N.) et colonne 1 soit la catégorie grammaticale donc : NNP.
+
+Autres exemples:
