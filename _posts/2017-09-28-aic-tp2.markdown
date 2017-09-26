@@ -115,11 +115,9 @@ et indique les informations utilisées pour étiqueter ce token. Les information
 Par exemple [-2,1] correspondra au token deux positions avant le token courant (U.N.) et colonne 1 soit la catégorie grammaticale donc : NNP.
 
 Autres exemples:
-|patron|attribut|
-|---|---|
-| %x[+1,2] |  I-VP |
-| %x[-1,0] |official|
-| %x[-1,0]/%x[+1,2] |official I-VP|
+- `%x[+1,2]` =>  `I-VP`
+- `%x[-1,0]` => `official`
+- `%x[-1,0]/%x[+1,2]` => `official I-VP`
 
 ## Test
 Pour annoter un corpus de test à partir du modèle créé:
