@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "tp2 AIC - extraction d'information"
+date:   2017-09-28 10:45:00 +0200
+categories: ens aic
+---
+
+Objectif
+========
+
+L'objectif de ce TP sera de développer un système de reconnaissance d'entités nommées pour l'anglais et/ou pour le français, fondé sur l'outil [wapiti](http://wapiti.limsi.fr/). 
