@@ -5,13 +5,13 @@ date:   2017-09-28 10:45:00 +0200
 categories: ens aic
 ---
 
-Objectif
-========
+#Objectif
+
 
 L'objectif de ce TP sera de développer un système de reconnaissance d'entités nommées pour l'anglais et/ou pour le français, fondé sur l'outil [wapiti](http://wapiti.limsi.fr/).
 
-Ressources
-==========
+#Ressources
+
 Les corpus sont dans ....
 
 
@@ -24,8 +24,8 @@ puis décompresser l'archive:
 et installer wapiti:
 `cd wapiti-1.5.0/` puis `make`
 
-Anglais
--------
+##Anglais
+
 Deux corpus vous sont fournis:
 - un corpus d'entraînement appelé `eng.train`
 - un corpus de test appelé `eng.test`
@@ -51,8 +51,8 @@ Les catégories d'entités nommées sont les suivantes: personne, organisation, 
 De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/docs/conll2003_campaign.pdf).
 
 
-Français
---------
+##Français
+
 Deux corpus vous sont fournis:
 - un corpus d'entraînement appelé `fra.train`
 - un corpus de test appelé `fra.test`
@@ -96,7 +96,7 @@ Quelques options utiles:
 - `-i`: nombre maximum d'itérations (par défaut infini, et utilise d'autres critères d'arrêt)
 - `-t`: nombre de threads à utiliser (par défaut, 1)
 
-## Patrons
+### Patrons
 Les features sont définies par des patrons dont [la syntaxe est expliquée ici](https://wapiti.limsi.fr/manual.html#patterns).
 
 Globablement, le fichier de patron considère le token courant du fichier donné en entrée:
@@ -115,3 +115,32 @@ et indique les informations utilisées pour étiqueter ce token. Les information
 Par exemple [-2,1] correspondra au token deux positions avant le token courant (U.N.) et colonne 1 soit la catégorie grammaticale donc : NNP.
 
 Autres exemples:
+|patron|attribut|
+|---|---|
+| %x[+1,2] |  I-VP |
+| %x[-1,0] |official|
+| %x[-1,0]/%x[+1,2] |official I-VP|
+
+## Test
+Pour annoter un corpus de test à partir du modèle créé:
+`./wapiti label -m modele fichier_de_test fichier_de_test_annote`
+
+ou, si le fichier de test est déjà annoté et qu'on veut calculer les performances de wapiti:
+
+`./wapiti label -c -m modele fichier_de_test fichier_de_test_annote`
+
+En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce cas) et par token (par mot dans ce cas), puis les métriques de rappel, précision et f-mesure pour chaque type d'étiquette.
+
+#Questions
+
+
+- Testez les performances de l'annotation en entités nommées avec un fichier de patron de base (comme [celui-ci](https://annlor.github.io/docs/pattern_basic.txy.tar.gz)).
+- Modifiez le fichier de patrons afin d'obtenir les meilleures performances possibles.
+  - ajoutez par exemple l'étiquette morpho-syntaxique si vous travaillez sur l'anglais
+  - ajoutez des expressions régulières (mot commençant par une majuscule, entièrement en majuscule…)
+- Enrichissez les corpus avec des ressources extérieures: catégories morphosyntaxiques venant d'un autre étiqueteur, listes d'entités ou de déclencheurs (M./Mme)…
+  - listes de [Geonames](http://www.geonames.org/) par exemple: [http://download.geonames.org/export/dump/]
+  - utilisation de l'étiquetage de nltk ou de Stanford CoreNLP
+  - Vous pouvez vous inspirer d'articles récents du domaine: http://www.anthology.aclweb.org/I/I11/I11-1142.pdf, http://www.aclweb.org/anthology/F14-3014, https://noisy-text.github.io/pdf/WNUT09.pdf
+- Comparez vos résultats avec ceux de nltk ou de Stanford CoreNLP
+
