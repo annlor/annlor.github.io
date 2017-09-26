@@ -126,7 +126,7 @@ En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce 
 # Questions
 
 
-- Testez les performances de l'annotation en entités nommées avec un fichier de patron de base (comme [celui-ci](https://annlor.github.io/docs/pattern_basic.txy.tar.gz)).
+- Testez les performances de l'annotation en entités nommées avec un fichier de patron de base (comme [celui-ci](https://annlor.github.io/docs/pattern_basic.txt.tar.gz)).
 - Modifiez le fichier de patrons afin d'obtenir les meilleures performances possibles.
   - ajoutez par exemple l'étiquette morpho-syntaxique si vous travaillez sur l'anglais
   - ajoutez des expressions régulières (mot commençant par une majuscule, entièrement en majuscule…)
