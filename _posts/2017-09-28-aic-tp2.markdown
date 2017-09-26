@@ -8,4 +8,20 @@ categories: ens aic
 Objectif
 ========
 
-L'objectif de ce TP sera de développer un système de reconnaissance d'entités nommées pour l'anglais et/ou pour le français, fondé sur l'outil [wapiti](http://wapiti.limsi.fr/). 
+L'objectif de ce TP sera de développer un système de reconnaissance d'entités nommées pour l'anglais et/ou pour le français, fondé sur l'outil [wapiti](http://wapiti.limsi.fr/).
+
+Ressources
+==========
+Les corpus sont dans ....
+
+
+Pour télécharger wapiti:
+`wget https://wapiti.limsi.fr/wapiti-1.5.0.tar.gz`
+
+puis décompresser l'archive:
+`tar zxvf wapiti-1.5.0.tar.gz`
+
+et installer wapiti:
+`cd wapiti-1.5.0/`
+
+`make`
