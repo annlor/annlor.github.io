@@ -26,7 +26,7 @@ Générez la liste des 1000 mots les plus fréquents du corpus.
 - Constituent-ils de bons descripteurs des textes ?
 - Comment pourrait-on choisir de meilleurs descripteurs ?
 
-Générez la liste des 1000 lemmes les plus fréquents. CHECK (ou stems)
+Générez la liste des 1000 lemmes ou racines les plus fréquents.
 - Quelles différences constatez-vous ? Donnez des exemples.
 - Quel problème a-t-il été traité avec les lemmes ?
 
