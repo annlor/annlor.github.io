@@ -8,6 +8,8 @@ categories: ens aic
 
 Le but de ces exercices est d'étudier les caractéristiques du vocabulaire dans les documents et leur utilisation pour de la recherche de documents. Chaque exercice permet d'en étudier un aspect.
 
+Les fichiers et ressources pour le TP sont dans `/public/master-aic-rei/tp3`
+
 Vous avez à votre disposition le script ri_basic.py qui contient quelques fonctions utiles, et que vous devrez compléter.
 
 Pour plus d'informations:
