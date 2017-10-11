@@ -49,11 +49,11 @@ côté documents.
 - Comparer la fréquence des termes dans un texte et leur tfidf. Que constatez-vous en terme de poids par rapport à la fréquence ? Donnez des exemples. À quoi est-ce dû ?
 
 ## Calcul de similarités
-Les requêtes sont en réalité des questions, qui sont dans le répertoire QUESTIONS (la question rd_12_q_2.txt correspond par exemple à la deuxième question sur le document 2).
+Les requêtes sont en réalité des questions, qui sont dans le répertoire data/questions (la question rd_12_q_2.txt correspond par exemple à la deuxième question sur le document 2).
 
 Calculez la similarité entre chaque question et les passages de textes issus du document associé.
 
-Le script eval.py vous permet de calculer une métrique d'évaluation appelée Mean Reciprocal Rank (MRR) au rang n:
+Le script eval/eval.py vous permet de calculer une métrique d'évaluation appelée Mean Reciprocal Rank (MRR) au rang n:
 MRR(n) = 1/nbquestions * somme (1/rangcorrect) avec rangcorrect <= n
 
 - Calculez le MRR pour le script courant.
