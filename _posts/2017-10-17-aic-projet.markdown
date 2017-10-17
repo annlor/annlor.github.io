@@ -21,5 +21,10 @@ Voici quelques exemples de sujets possibles:
 - segmentation des dialogues en scènes
 - classification des oeuvres
 - annotation des oeuvres en thèmes
-- ...
+- résumé automatique d'oeuvres
+
+Les premières questions auxquelles vous devrez répondre lorsque vous aurez une idée de sujet seront les suivantes:
+- Quels sont les corpus à utiliser ? Contiennent-ils les informations nécessaires à la tâche ? Quels seront les formats d'entrée et de sortie du programme développé ? Créez un exemple de fichier d'entrée et de sortie.
+- Comment le programme développé sera-t-il évalué: quelle(s) métrique(s) sera(ont) utilisée(s) ? quel corpus d'évaluation ? existe-t-il des scripts d'évaluation pour cette tâche ?
+- Existe-t-il des outils pour cette tâche ? Quels sont leur fonctionnement et leurs limites ?
 
