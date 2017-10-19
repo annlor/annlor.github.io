@@ -11,7 +11,7 @@ Les séances consacrées au projet seront celles du 17/10 (10h45-12h15), 19/10 e
 
 Le projet pourra se faire individuellement ou en binôme, mais dans le cas d'un binôme, le rapport devra détailler l'apport de chaque membre du binôme.
 
-Deux corpus sont à votre disposition (dans `/public/master_aic_rei/projet`):
+Deux corpus sont à votre disposition (dans `/public/master_aic_rei/projet` et dans [cette archive](https://annlor.github.io/docs/corpus.tar.gz)):
 - un corpus de pièces de théâtre classiques en français
 - un extrait du corpus OpenSubtitles en anglais
 
