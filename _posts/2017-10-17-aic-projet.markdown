@@ -4,7 +4,7 @@ title:  "projet - recherche d'information"
 date:   2017-10-17 10:45:00 +0200
 categories: ens aic
 ---
-
+# Projet
 Le projet du module Extraction et recherche d'information a pour objectif d'approfondir l'un des thèmes vus en cours ou en TP.
 
 Les séances consacrées au projet seront celles du 17/10 (10h45-12h15), 19/10 et 26/10. Le projet fera l'objet de soutenances le 09/11 (détails à venir).
@@ -28,3 +28,28 @@ Les premières questions auxquelles vous devrez répondre lorsque vous aurez une
 - Comment le programme développé sera-t-il évalué: quelle(s) métrique(s) sera(ont) utilisée(s) ? quel corpus d'évaluation ? existe-t-il des scripts d'évaluation pour cette tâche ?
 - Existe-t-il des outils pour cette tâche ? Quels sont leur fonctionnement et leurs limites ?
 
+## Rendus
+
+Chaque groupe devra rendre:
+- un rapport format pdf
+- les transparents de la présentation format pdf
+- le code de l'application et les corpus associés si nécessaire (ou une référence vers les corpus associés)
+
+dans une archive `nom1(_nom2)_projetrei.tar.gz` unique 
+
+## Rapport
+Le rapport devra contenir les points suivants:
+- rappel du thème
+- présentation de la méthode choisie
+- description des données
+- description des expériences menées
+- analyse des résultats
+- pistes d'amélioration
+- répartition du travail dans le cas d'un binôme
+
+## Soutenance
+Les soutenances consisteront à présenter le projet effectué en mettant en avant les problématiques abordées, les méthodes utilisées et une analyse des résultats.
+
+**Attention, la présentation est limitée à 2 transparents par groupe !**
+
+L'idée est de faire une "session booster", suivie de discussions entre groupes.
