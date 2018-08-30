@@ -35,13 +35,13 @@ Il n'est pas (nécessairement) demandé d'implémenter un programme fonctionnel,
 Ce TP fera l'objet d'un mini-compte rendu (format .txt) que vous [m'enverrez](mailto:annlor@limsi.fr) avec comme sujet [MasterAIC] Compte rendu TP1.
 
 Ce compte rendu devra mentionner:
-- l'objectif d'analyse visé
-- le type d'analyse pertinente
+- l'objectif du programme visé
+- le type d'analyses pertinentes
 - l'utilisation de ces analyses dans le programme imaginé
 - une proposition d'évaluation de ce programme (comment connaître ses performances ?)
 
-Par exemple, si l'objectif est de faire la liste des superhéros évoqués dans la série, les indications suivantes pourront être données (les informations données ci-dessous ne sont pas nécessairement optimales, mais sont données à titre d'exemple mais évidemment devraient être plus détaillées):
-- objectif: obtenir la liste des superhéros évoqués dans la série, par ordre décroissant de nombre d'apparitions
+Par exemple, si l'objectif est de faire la liste des superhéros évoqués dans la série, les indications suivantes pourront être données (les informations données ci-dessous ne sont pas nécessairement optimales, mais sont données à titre d'exemple et devraient évidemment être plus détaillées):
+- objectif: obtenir la liste des superhéros les plus évoqués dans la série
 - a priori, l'analyse en entités nommées devrait permettre de filtrer des mentions de personnages (à vérifier pour les personnages imaginaires; sinon on peut récupérer les noms propres avec l'étiquetage morpho-syntaxique)
-- ces entités devront être regroupées (Hulk, The Hulk, Brunce Banner...), leur appartenance à une catégorie Super Héros de Wikipédia devra être testée...
+- ces entités devront être regroupées (Hulk, The Hulk, Brunce Banner...), leur appartenance à une catégorie Super Héros de Wikipédia devra être testée, et leur nombre d'occurrences trié par ordre décroissant
 - afin d'évaluer la reconnaissance des mentions de superhéros, on pourra par exemple annoter un épisode (i.e. indiquer les mots qui correspondent à des mentions de superhéros) que l'on n'utilisera pas pour développer le programme, mais que l'on utilisera comme test du programme uniquement
