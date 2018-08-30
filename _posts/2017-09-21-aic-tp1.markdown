@@ -5,13 +5,13 @@ date:   2017-09-20 22:21:46 +0200
 categories: ens aic
 ---
 
-Vous disposez d'un (tout petit) [corpus de sous-titres de séries](https://perso.limsi.fr/annlor/enseignement/tbbt.tar.gz), aux formats:
+Vous disposez d'un (tout petit) [corpus de sous-titres de séries](https://perso.limsi.fr/annlor/enseignement/tbbt.tar.gz) en anglais, aux formats:
 - srt: sous-titres avec indications temporelles
 - xml: fichier XML regroupant les phrases, tokenisé
 - txt: fichier texte (une phrase par ligne)
 
 
-L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) (Java) ou la librairie [nltk](http://www.nltk.org/) (python).
+L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) (en Java à l'origine mais vous pouvez trouver des wrapper Python [ici](https://github.com/Lynten/stanford-corenlp) ou [là](https://github.com/dasmith/stanford-corenlp-python) par exemple) ou la librairie [nltk](http://www.nltk.org/) (python mais moins puissante en TAL).
 
 Vous testerez donc les analyses suivantes:
 - segmentation en mots (tokenisation)
