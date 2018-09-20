@@ -5,4 +5,4 @@ date:   2017-09-20 22:21:46 +0200
 categories: ens aic
 ---
 
-Premier cours: [Introduction au Traitement Automatique des Langues](https://annlor.github.io/docs/REI_1_Intro_TAL_AL.pdf)
+Premier cours: [Introduction au Traitement Automatique des Langues](https://annlor.github.io/docs/cours_intro_tal.pdf)
