@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "tp2 AIC - extraction d'information"
-date:   2017-09-28 10:45:00 +0200
+date:   2018-09-25 10:45:00 +0200
 categories: ens aic
 ---
 
