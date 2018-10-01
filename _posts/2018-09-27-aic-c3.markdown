@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "cours 3 et 4 AIC - recherche d'information"
+date:   2018-09-27 09:00:00 +0200
+categories: ens aic
+---
+
+Troisième cours: [Introduction à la Recherche d'information](https://annlor.github.io/docs/REI_Intro_RI_AL.pdf)
+
+Troisième cours: [Recherche d'information - Modèles](https://annlor.github.io/docs/cours_ri_2.pdf)
