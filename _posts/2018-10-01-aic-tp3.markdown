@@ -16,6 +16,11 @@ Pour plus d'informations:
 - [la documentation de nltk concernant les prétraitements et l'analyse morpho-syntaxique](http://www.nltk.org/book/ch03.html)
 - [la documentation de scikitlearn concernant les traitements textuels](http://scikit-learn.org/stable/modules/feature_extraction.html)
 
+Pour installer scikit-learn si vous ne l'avez pas encore:
+- créez un environnement python `python3 -m venv envtp`
+- lancez le: `source envtp/bin/activate`
+- installez le package: `pip install -U scikit-learn` (si nécessaire mettez à jour pip: `pip install --upgrade pip`)
+
 
 # Exercice 1: étude des lexiques
 
