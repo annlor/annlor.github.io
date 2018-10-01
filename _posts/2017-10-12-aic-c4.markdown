@@ -1,8 +1,0 @@
----
-layout: post
-title:  "cours 4 AIC - recherche d'information"
-date:   2017-10-12 09:00:00 +0200
-categories: ens aic
----
-
-Quatrième cours: [Recherche d'information 2](https://annlor.github.io/docs/REI_4_RI_2.pdf)
