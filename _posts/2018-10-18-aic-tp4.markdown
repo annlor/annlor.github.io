@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "tp4 AIC - classification de textes"
+date:   2018-10-18 22:21:46 +0200
+categories: ens aic
+---
+
+L'objectif de ce TP est de tester des méthodes de classification de textes. Vous utiliserez le framework keras.
+
+Pour cela, il vous faudra installer les packages keras et tensorflow:
+- `source envtp/bin/activate` pour vous mettre dans l'environnement de tp
+- puis `pip install tensorflow`
+- et `pip install keras`
+
+Vous disposez du livre Deep learning with Python dans `/public/master_aic_rei/tp4`.
+
+Lire et testez les sections 3.4 et 3.5 sur classification basique de textes (binaire et multi-classes)
+
+Lire et testez le chapitre 6 sur l'apprentissage profond pour le texte.
+
+Vous pouvez récupérer les notebooks du livre à l'adresse suivante: https://github.com/fchollet/deep-learning-with-python-notebooks
