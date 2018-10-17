@@ -188,7 +188,8 @@ model.add(layers.Dense(46, activation='softmax'))
 ## Compilation du modèle
 ```python
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
-``
+```
+
 ## Création de l'ensemble de validation
 ```python
 x_val = x_train[:1000]
