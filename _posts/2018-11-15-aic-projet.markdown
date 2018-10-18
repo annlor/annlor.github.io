@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "projet - recherche d'information"
+title:  "projet - recherche et extraction d'information"
 date:   2018-11-15 10:45:00 +0200
 categories: ens aic
 ---
