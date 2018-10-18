@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "projet - recherche d'information"
-date:   2017-10-17 10:45:00 +0200
+date:   2018-10-18 10:45:00 +0200
 categories: ens aic
 ---
 # Projet
 Le projet du module Extraction et recherche d'information a pour objectif d'approfondir l'un des thèmes vus en cours ou en TP.
 
-Les séances consacrées au projet seront celles du 17/10 (10h45-12h15), 19/10 et 26/10. Le projet fera l'objet de soutenances le 09/11 (détails à venir).
+Les séances consacrées au projet seront celles du 22/10 (10h45-12h15), 24/10 (14h-17h15) et 25/10 (10h45-12h15). Le projet fera l'objet de soutenances le 15/11.
 
 Le projet pourra se faire individuellement ou en binôme, mais dans le cas d'un binôme, le rapport devra détailler l'apport de chaque membre du binôme.
 
