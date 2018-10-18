@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "projet - recherche d'information"
-date:   2018-10-18 10:45:00 +0200
+date:   2018-11-15 10:45:00 +0200
 categories: ens aic
 ---
 # Projet
