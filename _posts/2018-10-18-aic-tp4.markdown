@@ -12,6 +12,17 @@ Pour cela, il vous faudra installer les packages keras et tensorflow:
 - puis `pip install tensorflow`
 - et `pip install keras`
 
+Pour pouvoir utiliser les notebooks sur les ordinateurs de l'université:
+(dans votre environnement de tp toujours)
+```bash
+python3 -m pip install ipykernel
+python3 -m ipykernel install --user
+```
+puis
+```bash
+jupyter notebook --ip 127.0.0.1
+```
+
 Vous disposez du livre Deep learning with Python dans `/public/master_aic_rei/tp4`.
 
 Lire et testez les sections 3.4 et 3.5 sur classification basique de textes (binaire et multi-classes)
