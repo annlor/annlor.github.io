@@ -35,7 +35,7 @@ Chaque groupe devra rendre:
 - les transparents de la présentation format pdf
 - le code de l'application et les corpus associés si nécessaire (ou une référence vers les corpus associés)
 
-dans une archive `nom1(_nom2)_projetrei.tar.gz` unique 
+dans une archive `nom1(_nom2)_projetrei.tar.gz` unique avant le 16 novembre 23h59
 
 ## Rapport
 Le rapport devra contenir les points suivants:
