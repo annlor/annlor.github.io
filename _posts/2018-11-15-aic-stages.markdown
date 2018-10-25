@@ -46,7 +46,8 @@ compétences techniques : python, linux
 
 # Stage Skaizengroup: Automatic Knowledge base population based on public sources integration and sourcing
 
-## Contact: ncabioch@skaizengroup.fr
+## Contact
+ncabioch@skaizengroup.fr
 
 ## Objectif du stage
 - Establish the state of the art in term of automted Knowledge base population from public sources with fact checking and best validity scoring algorithms and approaches. Our goal in this first part of the mission is to analyze different options and solutions in the field  of Natural Language Processing, Topic Detection and tracking, Entity link detection and evaluation systems, Content based recommendations, supervised and unsupervised learning. Performance and scoring evaluation framework should also be highlighted and their performances evaluated.
