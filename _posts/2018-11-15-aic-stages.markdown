@@ -6,7 +6,7 @@ categories: ens aic
 ---
 # Stage au LIMSI CNRS : Comparaison de fonctions objectif pour l'apprentissage de représentation : application à la vérification du locuteur et au calcul de similarité sémantique textuelle
 
-## Contacts
+### Contacts
 Sahar Ghannay (ghannay@limsi.fr), Sophie Rosset (rosset@limsi.fr), Hervé Bredin (bredin@limsi.fr)
 
 ## Sujet
