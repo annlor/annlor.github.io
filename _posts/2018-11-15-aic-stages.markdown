@@ -22,11 +22,17 @@ Cette tâche consiste à évaluer dans quelle mesure deux phrases sont sémantiq
 
 ### Références
 [Bre17] Hervé Bredin. Tristounet : triplet loss for speaker turn embedding. In 2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 5430–5434. IEEE, 2017.
+
 [CDA + 17] Daniel Cer, Mona Diab, Eneko Agirre, Inigo Lopez-Gazpio, and Lucia Specia. Semeval-2017 task 1 : Semantic textual similarity-multilingual and cross-lingual focused evaluation. arXiv preprint arXiv :1708.00055, 2017.
+
 [CNZ18] Joon Son Chung, Arsha Nagr ni, and Andrew Zisserman. Voxceleb2 : Deep speaker recognition. arXiv preprint arXiv :1806.05622, 2018.
+
 [HCL06] Raia Hadsell, Sumit Chopra, and Yann LeCun. Dimensionality reduction by learning an invariant mapping. In CVPR 2006, pages 1735–1742. IEEE, 2006.
+
 [NCZ17] Arsha Nagrani, Joon Son Chung, and Andrew Zisserman. Voxceleb : a large-scale speaker identification dataset. arXiv preprint arXiv :1706.08612, 2017.
+
 [SKP15] Florian Schroff, Dmitry Kalenichenko, and James Philbin. Facenet : A unified embedding for face recognition and clustering. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 815–823, 2015.
+
 [WZLQ16] Yandong Wen, Kaipeng Zhang, Zhifeng Li, and Yu Qiao. A discriminative feature learning approach for deep face recognition. In European Conference on Computer Vision, pages 499–515. Springer, 2016.
 
 ### Profil attendu
