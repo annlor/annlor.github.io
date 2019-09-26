@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "propositions de stages"
+date:   2018-11-15 10:45:00 +0200
+categories: ens aic
+---
+# Stage au LIMSI CNRS : Comparaison de fonctions objectif pour l'apprentissage de représentation : application à la vérification du locuteur et au calcul de similarité sémantique textuelle
+
+## Contacts
+Sahar Ghannay (ghannay@limsi.fr), Sophie Rosset (rosset@limsi.fr), Hervé Bredin (bredin@limsi.fr)
+
+## Sujet
+Le rôle de la fonction objectif dans l’apprentissage neuronal est de fournir une mesure de la performance du réseau de neurones (i.e. sa capacité à répondre correctement à une tâche précise). Cette mesure, lorsqu’elle est dérivable, permet alors de mettre à jour le réseau de neurones par rétro-propagation du gradient de telle sorte que sa performance soit améliorée.
+Parmi ces fonctions objectif, on peut par exemple citer la “contrastive loss” [HCL06], la “triplet loss” [SKP15], ou encore la “center loss” [WZLQ16].
+L’objectif de ce stage est de comparer différentes fonctions objectif permettant l’apprentissage des représentations neuronales adaptées à des tâches applicatives telles que la vérification du locuteur et la similarité sémantique textuelle. La plupart de ces méthodes ont été initialement proposées dans le domaine de la vision par ordinateur pour la reconnaissance d'image (et de visage en particulier) et certaines ont été appliquées récemment à tâche de vérification du locuteur [Bre17]. Cependant, elles n’ont pas encore été utilisées pour la tâche de similarité sémantique textuelle.

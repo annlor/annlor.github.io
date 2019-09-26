@@ -1,0 +1,357 @@
+---
+layout: post
+title:  "tp4 AIC - classification de textes (version longue)"
+date:   2018-10-18 22:21:46 +0200
+categories: ens aic
+---
+
+L'objectif de ce TP est de tester des méthodes de classification de textes. Vous utiliserez le framework keras.
+
+Pour cela, il vous faudra installer les packages keras et tensorflow:
+- `source envtp/bin/activate` pour vous mettre dans l'environnement de tp
+- puis `pip install tensorflow`
+- et `pip install keras`
+
+Vous disposez du livre Deep learning with Python dans `/public/master_aic_rei/tp4`.
+
+Vous pouvez récupérer les notebooks du livre à l'adresse suivante: https://github.com/fchollet/deep-learning-with-python-notebooks
+
+
+# Classification binaire de textes: analyse de sentiments 
+## Jeu de données IMDB
+
+- 50 000 commentaires très polarisés extraits de la base Internet Movie Database
+- 25 000 entraînement et 25 000 test
+- 50% de commentaires positifs et 50% de commentaires négatifs dans chaque
+- disponible sous forme déjà prétraitée dans Keras: mots -> entiers
+
+Pour charger le jeu de données:
+```python
+from keras.datasets import imdb
+(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
+```
+
+L'argument `num_words=10000` indique que vous ne gardez que les 10 000 mots les plus fréquents de l'ensemble d'entraînement.
+
+Les variables `train_data` et `test_data` sont des listes de commentaires. Chaque commentaire est une liste d'indices de mots. Les variables `train_labels` et `test_labels` sont des listes de 0 et 1, avec 0 pour indiquer des commentaires négatifs, et 1 des commentaires positifs.
+
+## Préparation des données
+Transformer les listes en vecteurs one-hot.
+
+```python
+import numpy as np
+def vectorize_sequences(sequences, dimension=10000):
+    results = np.zeros((len(sequences), dimension))
+    for i, sequence in enumerate(sequences):
+        results[i, sequence] = 1.
+    return results
+
+x_train = vectorize_sequences(train_data)
+x_test = vectorize_sequences(test_data)
+
+y_train = np.asarray(train_labels).astype('float32')
+y_test = np.asarray(test_labels).astype('float32')
+```
+
+## Création du modèle
+
+```python
+from keras import models
+from keras import layers
+model = models.Sequential()
+model.add(layers.Dense(16, activation='relu', input_shape=(10000,)))
+model.add(layers.Dense(16, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+```
+
+et
+
+```python
+model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accuracy'])
+```
+
+## Création de l'ensemble de validation
+
+```python
+x_val = x_train[:10000]
+partial_x_train = x_train[10000:]
+y_val = y_train[:10000]
+partial_y_train = y_train[10000:]
+```
+
+## Entraînement
+```python
+history = model.fit(partial_x_train, partial_y_train, epochs=20, batch_size=512, validation_data=(x_val, y_val))
+```
+
+
+## Affichage des informations
+
+### Loss
+```python
+import matplotlib.pyplot as plt
+
+history_dict = history.history
+loss_values = history_dict['loss']
+val_loss_values = history_dict['val_loss']
+
+epochs = range(1, len(acc) + 1)
+
+plt.plot(epochs, loss_values, 'bo', label='Training loss')
+plt.plot(epochs, val_loss_values, 'b', label='Validation loss')
+plt.title('Training and validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+```
+
+### Accuracy
+```python
+plt.clf()
+acc_values = history_dict['acc']
+val_acc_values = history_dict['val_acc']
+
+plt.plot(epochs, acc, 'bo', label='Training acc')
+plt.plot(epochs, val_acc, 'b', label='Validation acc')
+plt.title('Training and validation accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+```
+
+Qu'observez-vous ? Pourquoi ?
+
+## Test du modèle
+
+```python
+model = models.Sequential()
+model.add(layers.Dense(16, activation='relu', input_shape=(10000,)))
+model.add(layers.Dense(16, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accuracy'])
+
+
+model.fit(x_train, y_train, epochs=4, batch_size=512)
+results = model.evaluate(x_test, y_test)
+```
+
+Vous devriez obtenir une accuracy d'environ 88% (deuxième chiffre). Les modèles état de l'art obtiennent près de 95%.
+
+Pour utiliser ensuite ce modèle
+```python
+model.predict(x_test)
+```
+
+## Test d'autres choix d'architecture
+- 1 ou 3 couches
+- dimension de la couche d'entrée: 32 ou 64
+- fonction de loss `mse`
+- ... 
+
+# Classification multi-classes: dépêches Reuters
+
+## Jeu de données Reuters
+- 46 thèmes
+- au moins 10 exemples par thèmes dans le jeu d'entraînement
+
+## Chargement des données
+```python
+from keras.datasets import reuters
+(train_data, train_labels), (test_data, test_labels) = reuters.load_data(num_words=10000)
+```
+
+## Préparation des données
+```python
+import numpy as np
+def vectorize_sequences(sequences, dimension=10000):
+    results = np.zeros((len(sequences), dimension))
+    for i, sequence in enumerate(sequences):
+        results[i, sequence] = 1.
+    return results
+
+x_train = vectorize_sequences(train_data)
+x_test = vectorize_sequences(test_data)
+```
+```python
+from keras.utils.np_utils import to_categorical
+one_hot_train_labels = to_categorical(train_labels)
+one_hot_test_labels = to_categorical(test_labels)
+```
+
+## Création du modèle
+```python
+from keras import models
+from keras import layers
+model = models.Sequential()
+model.add(layers.Dense(64, activation='relu', input_shape=(10000,)))
+model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dense(46, activation='softmax'))
+```
+
+## Compilation du modèle
+```python
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+```
+
+## Création de l'ensemble de validation
+```python
+x_val = x_train[:1000]
+partial_x_train = x_train[1000:]
+y_val = one_hot_train_labels[:1000]
+partial_y_train = one_hot_train_labels[1000:]
+```
+
+## Entraînement
+```python
+history = model.fit(partial_x_train, partial_y_train, epochs=20, batch_size=512, validation_data=(x_val, y_val))
+```
+
+## Affichages
+ de la loss 
+```python
+import matplotlib.pyplot as plt
+
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+epochs = range(1, len(loss) + 1)
+
+plt.plot(epochs, loss, 'bo', label='Training loss')
+plt.plot(epochs, val_loss, 'b', label='Validation loss')
+plt.title('Training and validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+```
+de l'accuracy
+```python
+plt.clf()
+
+acc = history.history['acc']
+val_acc = history.history['val_acc']
+
+plt.plot(epochs, acc, 'bo', label='Training acc')
+plt.plot(epochs, val_acc, 'b', label='Validation acc')
+plt.title('Training and validation accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.show()
+```
+
+## Test
+
+```python
+model = models.Sequential()
+model.add(layers.Dense(64, activation='relu', input_shape=(10000,)))
+model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dense(46, activation='softmax'))
+
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+model.fit(partial_x_train, partial_y_train, epochs=9, batch_size=512, validation_data=(x_val, y_val))
+results = model.evaluate(x_test, one_hot_test_labels)
+
+results
+```
+Vous devriez obtenir une accuracy d'environ 80% (deuxième chiffres).
+
+## Test d'autres paramètres
+À vous !
+
+# Manipuler du texte
+## One-hot encoding
+mots
+```python
+import numpy as np
+
+samples = ['The cat sat on the mat.', 'The dog ate my homework.']
+
+token_index = {}
+for sample in samples:
+    for word in sample.split():
+        if word not in token_index:
+            token_index[word] = len(token_index) + 1
+
+max_length = 10
+
+results = np.zeros(shape=(len(samples), max_length, max(token_index.values()) + 1))
+for i, sample in enumerate(samples):
+    for j, word in list(enumerate(sample.split()))[:max_length]:
+        index = token_index.get(word)
+        results[i, j, index] = 1.
+```
+
+caractères
+```python
+import string
+
+samples = ['The cat sat on the mat.', 'The dog ate my homework.']
+
+characters = string.printable
+token_index = dict(zip(range(1, len(characters) + 1), characters))
+
+max_length = 50
+results = np.zeros((len(samples), max_length, max(token_index.keys()) + 1))
+for i, sample in enumerate(samples):
+    for j, character in enumerate(sample):
+    index = token_index.get(character)
+    results[i, j, index] = 1.
+```
+
+utilisation de Keras pour mots
+```python
+from keras.preprocessing.text import Tokenizer
+
+samples = ['The cat sat on the mat.', 'The dog ate my homework.']
+
+tokenizer = Tokenizer(num_words=1000)
+tokenizer.fit_on_texts(samples) # crée l'index de mots
+
+sequences = tokenizer.texts_to_sequences(samples) 
+
+one_hot_results = tokenizer.texts_to_matrix(samples, mode='binary')
+
+word_index = tokenizer.word_index
+print('Found %s unique tokens.' % len(word_index))
+
+```
+## Plongements lexicaux
+```python
+from keras.layers import Embedding
+
+embedding_layer = Embedding(1000, 64) # arg1 = nb tokens, arg2 = dim 
+```
+
+## Retour sur l'exemple d'IMDB
+```python
+from keras.datasets import imdb
+from keras import preprocessing
+
+max_features = 10000 # nb de mots du vocabulaire pris en compte
+maxlen = 20 # texte coupé après 20 mots du vocabulaire
+
+(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)
+
+x_train = preprocessing.sequence.pad_sequences(x_train, maxlen=maxlen)
+x_test = preprocessing.sequence.pad_sequences(x_test, maxlen=maxlen)
+
+from keras.models import Sequential
+from keras.layers import Flatten, Dense
+
+model = Sequential()
+model.add(Embedding(10000, 8, input_length=maxlen))
+
+model.add(Flatten())
+
+model.add(Dense(1, activation='sigmoid'))
+model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc'])
+model.summary()
+
+history = model.fit(x_train, y_train, epochs=10, batch_size=32, validation_split=0.2)
+
+```
+
