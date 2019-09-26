@@ -14,6 +14,7 @@ Vous disposez d'un (tout petit) [corpus de sous-titres de séries](https://perso
 
 
 L'objectif de ce TP est de vous familiariser avec les différentes analyses de Traitement Automatique des Langues disponibles dans la librairie [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) (en Java à l'origine mais vous pouvez trouver des surcouches Python [ici](https://github.com/Lynten/stanford-corenlp) ou [là](https://github.com/dasmith/stanford-corenlp-python) par exemple) ou la librairie [nltk](http://www.nltk.org/) (python mais moins puissante en TAL).
+Vous pouvez aussi utiliser l'[interface web de CoreNLP](corenlp.run) si elle fonctionne...
 
 Vous testerez donc les analyses suivantes:
 - segmentation en mots (tokenisation)
@@ -56,6 +57,7 @@ The data is a (very small) corpus of English subtitles, in the formats:
 - txt: text file (one sentence per line)
 
 The objective is to get acquainted with the various analyzes of Natural  Language Processing available in the [CoreNLP library](https://stanfordnlp.github.io/CoreNLP/) (in Java originally but you can find Python wrapper [here](https://github.com/Lynten/stanford-corenlp) or there for example) or the [nltk library] (http://www.nltk.org/) (python but less powerful in TAL).
+You can also use [CoreNLP's web interface](corenlp.run) if it works...
 
 You will test the following analyzes:
 
