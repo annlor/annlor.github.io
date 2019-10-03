@@ -5,6 +5,8 @@ date:   2019-10-03 10:45:00 +0200
 categories: ens aic
 ---
 
+[English version below]
+
 # Objectif
 
 
@@ -140,7 +142,7 @@ En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce 
 # Objective
 
 
-The objective will be to develop a named entity recognition system for English and/or French, based on the CRF tool [wapiti](http://wapiti.limsi.fr/).
+The objective is to develop a named entity recognition system for English and/or French, based on the CRF tool [wapiti](http://wapiti.limsi.fr/).
 
 # Resources
 
@@ -154,12 +156,12 @@ Two corpora are given:
 - a training corpus called `eng.train`
 - a test corpus called `eng.test`
 
-Chacun de ces corpus est au format [Conll2003](https://www.clips.uantwerpen.be/conll2003/ner/): ils contiennent quatre colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. Les colonnes correspondent dans l'ordre au mot, à la catégorie morphosyntaxique (pos tag, obtenue avec l'analyseur MBT tagger), à l'appartenance à un groupe syntaxique (chunk) et la dernière colonne représente l'étiquette d'entité nommée. 
+Each corpus follows the [Conll2003](https://www.clips.uantwerpen.be/conll2003/ner/) format: they contain four columns separated by white spaces. Each word corresponds to a line and sentences are separated by an empty line. The columns correspond to: the word, POS tag ( from MBT tagger), the syntactic phrase (chunk) and the last column represents the named entity tag. 
 	
 
-Les étiquettes de chunk et d'entité nommée sont au format I-TYPE qui indique que le mot fait partie d'une entité de type TYPE. Si deux entités de même type se suivent, le premier mot de la seconde aura pour étiquette B-TYPE pour indiquer qu'il s'agit d'une nouvelle entité. L'étiquette O indique que le mot ne fait pas partie d'une entité.
+The chunk and named entity tags are in the I-TYPE format, which indicates that the word is part of a TYPE entity. If two entities follow each other, the first word of the second entity will get a B-TYPE tag to indicate that it is a new entity. The  O tag indicates that the word is not part of an entity.
 
-Exemple:
+Example:
 ```
 U.N.         NNP  I-NP  I-ORG
 official     NN   I-NP  O
@@ -170,22 +172,22 @@ Baghdad      NNP  I-NP  I-LOC
 .            .    O     O
 ```
 
-Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu et entité nommée diverse n'appartenant pas aux catégories précédentes (nationalité, titre d'œuvre, événement…).
+The NE categories are the following: person, organization, location and miscellaneous ie not belonging to a previous category (nationality, work title, event…).
 
-De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/docs/conll2003_campaign.pdf).
+Additional information can be found in the [Conll2003 campaign paper](http://annlor.github.io/docs/conll2003_campaign.pdf).
 
 
-## Français
+## French
 
-Deux corpus vous sont fournis:
-- un corpus d'entraînement appelé `fra.train`
-- un corpus de test appelé `fra.test`
+Two corpora are given:
+- a training corpus `fra.train`
+- a test corpus `fra.test`
 
-Chacun de ces corpus contient deux colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. La première colonne correspond au mot, et la deuxième représente l'étiquette d'entité nommée.
+Each contains two columns separated by white spaces. Each word corresponds to a line and sentences are separated by an empty line. The first column corresponds to the word, and the second to the named entity tag.
 
-Les étiquettes ​de chunk et d'entité nommée sont au format BIO qui indique que le mot est respectivement au début, à l'intérieur ou à l'extérieur d'une entité de type TYPE.
+NE tags are in the BIO format, which indicates that the word is at the beginning (B), inside (I) or outside (O) a TYPE type entity.
 
-Exemple:
+Example:
 ```
 le O
 ministre b-func
@@ -201,68 +203,69 @@ des O
 effectifs O
 . O
 ```
-Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu, fonctions et productions humaines (titre d'œuvre, de marque, logiciel...).
+NE categories are the following: person, organization, location, functions and humain productions (work title, brand, software...).
 
-Le corpus et les annotations (qui ont été simplifiées pour créer les fichiers fournis) proviennent de la campagne d'évaluation de Quaero; de nombreuses informations complémentaires sont données dans le [guide d'annotation correspondant](https://annlor.github.io/docs/quaero-guide-annotation-2011.pdf).
+The corpus and annotations (which were simplified to create these files) come from the Quaero evaluation campaign; additional information can be found in the  [Quaero annotation guidelines](https://annlor.github.io/docs/quaero-guide-annotation-2011.pdf).
 
-# Utilisation de Wapiti
+# Wapiti manual
 
-Wapiti est une boîte à outil dédiée à la segmentation et à l'étiquetage de séquences développée au LIMSI, intégrant plusieurs modèles (Maxent, MEMM, CRF). Il met en œuvre plusieurs algorithmes standards et propose plusieurs méthodes de régularisation dans le but d’améliorer la performance de prédiction des modèles (sélection des traits pertinents, réduction du sur-apprentissage…). Son manuel est consultable à [cette page](https://wapiti.limsi.fr/manual.html) (vous êtes très fortement encouragés à lire le manuel avant de faire le TP.
+Wapiti is a toolkit dedicated to sequence labeling. It was developed in LIMSI and integrates several models (Maxent, MEMM, CRFs). It provides several standard algorithms and proposes several  regularization methods in order to improve the prediction performance (feature selection, reduction of overfitting…). Its manual can be found on [this page](https://wapiti.limsi.fr/manual.html) (you are strongly encouraged to read the manual before starting).
 
-La syntaxe générale est:
+The general syntax is:
 `wapiti mode [options] [input] [output]`
 
-## Entraînement
-Pour entraîner wapiti sur un corpus:
+## Training
+To train wapiti on a corpus:
 
-`./wapiti train -p fichier_de_patrons fichier_d'entrainement modele`
+`./wapiti train -p pattern_file training_file model`
 
-Quelques options utiles:
-- `-i`: nombre maximum d'itérations (par défaut infini, et utilise d'autres critères d'arrêt)
-- `-t`: nombre de threads à utiliser (par défaut, 1)
+A few useful options:
+- `-i`: maximum number of iterations (default value= unbounded, and uses other criteria to sop)
+- `-t`: number of threads to use (default value = 1)
 
-### Patrons
-Les features sont définies par des patrons dont [la syntaxe est expliquée ici](https://wapiti.limsi.fr/manual.html#patterns).
+### Patterns
+The features are defined by patterns which syntax is explained [here](https://wapiti.limsi.fr/manual.html#patterns).
 
-Globablement, le fichier de patron considère le token courant du fichier donné en entrée:
+A pattern file considers the current token of the input file:
 ```
-colonnes: 0            1    2
+columns:  0            1    2
           U.N.         NNP  I-NP  I-ORG
           official     NN   I-NP  O
-          Ekeus        NNP  I-NP  I-PER   <<---- token courant
+          Ekeus        NNP  I-NP  I-PER   <<---- current token
           heads        VBZ  I-VP  O
           for          IN   I-PP  O
           Baghdad      NNP  I-NP  I-LOC
           .            .    O     O
 ```
-et indique les informations utilisées pour étiqueter ce token. Les informations sont référencées par leur position (ligne) par rapport au token courant, et leur type (colonne).
+and indicates the information used to tag this token. It is referenced by its position (line) in relation to the current token, and its type (column).
 
-Par exemple [-2,1] correspondra au token deux positions avant le token courant (U.N.) et colonne 1 soit la catégorie grammaticale donc : NNP.
+For example [-2,1] corresponds to the token two positions before the current one (U.N.) and column 1 ie its chunk NNP.
 
-Autres exemples:
+Other examples:
 - `%x[+1,2]` =>  `I-VP`
 - `%x[-1,0]` => `official`
 - `%x[-1,0]/%x[+1,2]` => `official I-VP`
 
 ## Test
-Pour annoter un corpus de test à partir du modèle créé:
+To annotate a test corpus from the model:
 
-`./wapiti label -m modele fichier_de_test fichier_de_test_annote`
+`./wapiti label -m model test_file annotated_test_file
 
-ou, si le fichier de test est déjà annoté et qu'on veut calculer les performances de wapiti:
+or if the test file was already labeled and wapiti performance is being tested:
 
-`./wapiti label -c -m modele fichier_de_test fichier_de_test_annote`
+`./wapiti label -c -m model test_file annotated_test_file
 
-En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce cas) et par token (par mot dans ce cas), puis les métriques de rappel, précision et f-mesure pour chaque type d'étiquette.
+
+Wapiti outputs the error rate by sequence  (ie by sentence in this case) and by token (ie by word here), then the recall, precision and f-measure metrics for each tag.
 
 # Questions
 
 
-- Testez les performances de l'annotation en entités nommées avec un fichier de patron de base (comme [celui-ci](https://annlor.github.io/docs/pattern_basic.txt.tar.gz)).
-- Modifiez le fichier de patrons afin d'obtenir les meilleures performances possibles.
-  - ajoutez par exemple l'étiquette morpho-syntaxique si vous travaillez sur l'anglais
-  - ajoutez des expressions régulières (mot commençant par une majuscule, entièrement en majuscule…)
-- Enrichissez les corpus avec des ressources extérieures: catégories morphosyntaxiques venant d'un autre étiqueteur, listes d'entités ou de déclencheurs (M./Mme)…
-  - utilisation de l'étiquetage de nltk ou de Stanford CoreNLP
-  - Vous pouvez vous inspirer d'articles récents du domaine: http://www.anthology.aclweb.org/I/I11/I11-1142.pdf, http://www.aclweb.org/anthology/F14-3014, https://noisy-text.github.io/pdf/WNUT09.pdf
-- Comparez vos résultats avec ceux de nltk ou de Stanford CoreNLP
+- Test the performance of the named entity labeling with a basic pattern file (such as [this one](https://annlor.github.io/docs/pattern_basic.txt.tar.gz)).
+- Change the pattern file to improve the performance.
+  - for example add the POS tag if you are using the English corpora
+  - add regular expressions (for example for word case…)
+- Enrich the corpora with external resources: POS tags from another tagger, lists of entities or triggers (Mr./Mrs)…
+  - using nltk or Stanford CoreNLP taggers
+  - you can use papers from this domain: http://www.anthology.aclweb.org/I/I11/I11-1142.pdf, http://www.aclweb.org/anthology/F14-3014, https://noisy-text.github.io/pdf/WNUT09.pdf
+- Compare your results with those from  nltk and Stanford CoreNLP
