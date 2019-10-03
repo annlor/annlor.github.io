@@ -1,0 +1,268 @@
+---
+layout: post
+title:  "tp2 AIC - extraction d'information"
+date:   2018-09-25 10:45:00 +0200
+categories: ens aic
+---
+
+# Objectif
+
+
+L'objectif de ce TP sera de développer un système de reconnaissance d'entités nommées pour l'anglais et/ou pour le français, fondé sur l'outil [wapiti](http://wapiti.limsi.fr/).
+
+# Ressources
+
+Les corpus sont dans `/public/master_aic_rei/tp2/corpusEN`
+
+Wapiti est installé dans `/public/master_aic_rei/wapiti-1.5.0`
+
+## Anglais
+
+Deux corpus vous sont fournis:
+- un corpus d'entraînement appelé `eng.train`
+- un corpus de test appelé `eng.test`
+
+Chacun de ces corpus est au format [Conll2003](https://www.clips.uantwerpen.be/conll2003/ner/): ils contiennent quatre colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. Les colonnes correspondent dans l'ordre au mot, à la catégorie morphosyntaxique (pos tag, obtenue avec l'analyseur MBT tagger), à l'appartenance à un groupe syntaxique (chunk) et la dernière colonne représente l'étiquette d'entité nommée. 
+	
+
+Les étiquettes de chunk et d'entité nommée sont au format I-TYPE qui indique que le mot fait partie d'une entité de type TYPE. Si deux entités de même type se suivent, le premier mot de la seconde aura pour étiquette B-TYPE pour indiquer qu'il s'agit d'une nouvelle entité. L'étiquette O indique que le mot ne fait pas partie d'une entité.
+
+Exemple:
+```
+U.N.         NNP  I-NP  I-ORG
+official     NN   I-NP  O
+Ekeus        NNP  I-NP  I-PER
+heads        VBZ  I-VP  O
+for          IN   I-PP  O
+Baghdad      NNP  I-NP  I-LOC
+.            .    O     O
+```
+
+Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu et entité nommée diverse n'appartenant pas aux catégories précédentes (nationalité, titre d'œuvre, événement…).
+
+De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/docs/conll2003_campaign.pdf).
+
+
+## Français
+
+Deux corpus vous sont fournis:
+- un corpus d'entraînement appelé `fra.train`
+- un corpus de test appelé `fra.test`
+
+Chacun de ces corpus contient deux colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. La première colonne correspond au mot, et la deuxième représente l'étiquette d'entité nommée.
+
+Les étiquettes ​de chunk et d'entité nommée sont au format BIO qui indique que le mot est respectivement au début, à l'intérieur ou à l'extérieur d'une entité de type TYPE.
+
+Exemple:
+```
+le O
+ministre b-func
+des i-func
+transports i-func
+Jean-Claude b-pers
+Gayssot i-pers
+a O
+annoncé O
+une O
+augmentation O
+des O
+effectifs O
+. O
+```
+Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu, fonctions et productions humaines (titre d'œuvre, de marque, logiciel...).
+
+Le corpus et les annotations (qui ont été simplifiées pour créer les fichiers fournis) proviennent de la campagne d'évaluation de Quaero; de nombreuses informations complémentaires sont données dans le [guide d'annotation correspondant](https://annlor.github.io/docs/quaero-guide-annotation-2011.pdf).
+
+# Utilisation de Wapiti
+
+Wapiti est une boîte à outil dédiée à la segmentation et à l'étiquetage de séquences développée au LIMSI, intégrant plusieurs modèles (Maxent, MEMM, CRF). Il met en œuvre plusieurs algorithmes standards et propose plusieurs méthodes de régularisation dans le but d’améliorer la performance de prédiction des modèles (sélection des traits pertinents, réduction du sur-apprentissage…). Son manuel est consultable à [cette page](https://wapiti.limsi.fr/manual.html) (vous êtes très fortement encouragés à lire le manuel avant de faire le TP.
+
+La syntaxe générale est:
+`wapiti mode [options] [input] [output]`
+
+## Entraînement
+Pour entraîner wapiti sur un corpus:
+
+`./wapiti train -p fichier_de_patrons fichier_d'entrainement modele`
+
+Quelques options utiles:
+- `-i`: nombre maximum d'itérations (par défaut infini, et utilise d'autres critères d'arrêt)
+- `-t`: nombre de threads à utiliser (par défaut, 1)
+
+### Patrons
+Les features sont définies par des patrons dont [la syntaxe est expliquée ici](https://wapiti.limsi.fr/manual.html#patterns).
+
+Globablement, le fichier de patron considère le token courant du fichier donné en entrée:
+```
+colonnes: 0            1    2
+          U.N.         NNP  I-NP  I-ORG
+          official     NN   I-NP  O
+          Ekeus        NNP  I-NP  I-PER   <<---- token courant
+          heads        VBZ  I-VP  O
+          for          IN   I-PP  O
+          Baghdad      NNP  I-NP  I-LOC
+          .            .    O     O
+```
+et indique les informations utilisées pour étiqueter ce token. Les informations sont référencées par leur position (ligne) par rapport au token courant, et leur type (colonne).
+
+Par exemple [-2,1] correspondra au token deux positions avant le token courant (U.N.) et colonne 1 soit la catégorie grammaticale donc : NNP.
+
+Autres exemples:
+- `%x[+1,2]` =>  `I-VP`
+- `%x[-1,0]` => `official`
+- `%x[-1,0]/%x[+1,2]` => `official I-VP`
+
+## Test
+Pour annoter un corpus de test à partir du modèle créé:
+
+`./wapiti label -m modele fichier_de_test fichier_de_test_annote`
+
+ou, si le fichier de test est déjà annoté et qu'on veut calculer les performances de wapiti:
+
+`./wapiti label -c -m modele fichier_de_test fichier_de_test_annote`
+
+En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce cas) et par token (par mot dans ce cas), puis les métriques de rappel, précision et f-mesure pour chaque type d'étiquette.
+
+# Questions
+
+
+- Testez les performances de l'annotation en entités nommées avec un fichier de patron de base (comme [celui-ci](https://annlor.github.io/docs/pattern_basic.txt.tar.gz)).
+- Modifiez le fichier de patrons afin d'obtenir les meilleures performances possibles.
+  - ajoutez par exemple l'étiquette morpho-syntaxique si vous travaillez sur l'anglais
+  - ajoutez des expressions régulières (mot commençant par une majuscule, entièrement en majuscule…)
+- Enrichissez les corpus avec des ressources extérieures: catégories morphosyntaxiques venant d'un autre étiqueteur, listes d'entités ou de déclencheurs (M./Mme)…
+  - utilisation de l'étiquetage de nltk ou de Stanford CoreNLP
+  - Vous pouvez vous inspirer d'articles récents du domaine: http://www.anthology.aclweb.org/I/I11/I11-1142.pdf, http://www.aclweb.org/anthology/F14-3014, https://noisy-text.github.io/pdf/WNUT09.pdf
+- Comparez vos résultats avec ceux de nltk ou de Stanford CoreNLP
+
+------------------
+
+# Objective
+
+
+The objective will be to develop a named entity recognition system for English and/or French, based on the CRF tool [wapiti](http://wapiti.limsi.fr/).
+
+# Resources
+
+The corpora can be found in `/public/master_aic_rei/tp2/corpusEN`
+
+Wapiti is installed in `/public/master_aic_rei/wapiti-1.5.0`
+
+## English
+
+Two corpora are given:
+- a training corpus called `eng.train`
+- a test corpus called `eng.test`
+
+Chacun de ces corpus est au format [Conll2003](https://www.clips.uantwerpen.be/conll2003/ner/): ils contiennent quatre colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. Les colonnes correspondent dans l'ordre au mot, à la catégorie morphosyntaxique (pos tag, obtenue avec l'analyseur MBT tagger), à l'appartenance à un groupe syntaxique (chunk) et la dernière colonne représente l'étiquette d'entité nommée. 
+	
+
+Les étiquettes de chunk et d'entité nommée sont au format I-TYPE qui indique que le mot fait partie d'une entité de type TYPE. Si deux entités de même type se suivent, le premier mot de la seconde aura pour étiquette B-TYPE pour indiquer qu'il s'agit d'une nouvelle entité. L'étiquette O indique que le mot ne fait pas partie d'une entité.
+
+Exemple:
+```
+U.N.         NNP  I-NP  I-ORG
+official     NN   I-NP  O
+Ekeus        NNP  I-NP  I-PER
+heads        VBZ  I-VP  O
+for          IN   I-PP  O
+Baghdad      NNP  I-NP  I-LOC
+.            .    O     O
+```
+
+Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu et entité nommée diverse n'appartenant pas aux catégories précédentes (nationalité, titre d'œuvre, événement…).
+
+De nombreuses informations complémentaires sont données dans l'[article sur la campagne de Conll2003](http://annlor.github.io/docs/conll2003_campaign.pdf).
+
+
+## Français
+
+Deux corpus vous sont fournis:
+- un corpus d'entraînement appelé `fra.train`
+- un corpus de test appelé `fra.test`
+
+Chacun de ces corpus contient deux colonnes séparées par des espaces. Chaque mot correspond à une ligne et les phrases sont séparées par une ligne vide. La première colonne correspond au mot, et la deuxième représente l'étiquette d'entité nommée.
+
+Les étiquettes ​de chunk et d'entité nommée sont au format BIO qui indique que le mot est respectivement au début, à l'intérieur ou à l'extérieur d'une entité de type TYPE.
+
+Exemple:
+```
+le O
+ministre b-func
+des i-func
+transports i-func
+Jean-Claude b-pers
+Gayssot i-pers
+a O
+annoncé O
+une O
+augmentation O
+des O
+effectifs O
+. O
+```
+Les catégories d'entités nommées sont les suivantes: personne, organisation, lieu, fonctions et productions humaines (titre d'œuvre, de marque, logiciel...).
+
+Le corpus et les annotations (qui ont été simplifiées pour créer les fichiers fournis) proviennent de la campagne d'évaluation de Quaero; de nombreuses informations complémentaires sont données dans le [guide d'annotation correspondant](https://annlor.github.io/docs/quaero-guide-annotation-2011.pdf).
+
+# Utilisation de Wapiti
+
+Wapiti est une boîte à outil dédiée à la segmentation et à l'étiquetage de séquences développée au LIMSI, intégrant plusieurs modèles (Maxent, MEMM, CRF). Il met en œuvre plusieurs algorithmes standards et propose plusieurs méthodes de régularisation dans le but d’améliorer la performance de prédiction des modèles (sélection des traits pertinents, réduction du sur-apprentissage…). Son manuel est consultable à [cette page](https://wapiti.limsi.fr/manual.html) (vous êtes très fortement encouragés à lire le manuel avant de faire le TP.
+
+La syntaxe générale est:
+`wapiti mode [options] [input] [output]`
+
+## Entraînement
+Pour entraîner wapiti sur un corpus:
+
+`./wapiti train -p fichier_de_patrons fichier_d'entrainement modele`
+
+Quelques options utiles:
+- `-i`: nombre maximum d'itérations (par défaut infini, et utilise d'autres critères d'arrêt)
+- `-t`: nombre de threads à utiliser (par défaut, 1)
+
+### Patrons
+Les features sont définies par des patrons dont [la syntaxe est expliquée ici](https://wapiti.limsi.fr/manual.html#patterns).
+
+Globablement, le fichier de patron considère le token courant du fichier donné en entrée:
+```
+colonnes: 0            1    2
+          U.N.         NNP  I-NP  I-ORG
+          official     NN   I-NP  O
+          Ekeus        NNP  I-NP  I-PER   <<---- token courant
+          heads        VBZ  I-VP  O
+          for          IN   I-PP  O
+          Baghdad      NNP  I-NP  I-LOC
+          .            .    O     O
+```
+et indique les informations utilisées pour étiqueter ce token. Les informations sont référencées par leur position (ligne) par rapport au token courant, et leur type (colonne).
+
+Par exemple [-2,1] correspondra au token deux positions avant le token courant (U.N.) et colonne 1 soit la catégorie grammaticale donc : NNP.
+
+Autres exemples:
+- `%x[+1,2]` =>  `I-VP`
+- `%x[-1,0]` => `official`
+- `%x[-1,0]/%x[+1,2]` => `official I-VP`
+
+## Test
+Pour annoter un corpus de test à partir du modèle créé:
+
+`./wapiti label -m modele fichier_de_test fichier_de_test_annote`
+
+ou, si le fichier de test est déjà annoté et qu'on veut calculer les performances de wapiti:
+
+`./wapiti label -c -m modele fichier_de_test fichier_de_test_annote`
+
+En sortie, wapiti indique le taux d'erreur par séquence (ie par phrase dans ce cas) et par token (par mot dans ce cas), puis les métriques de rappel, précision et f-mesure pour chaque type d'étiquette.
+
+# Questions
+
+
+- Testez les performances de l'annotation en entités nommées avec un fichier de patron de base (comme [celui-ci](https://annlor.github.io/docs/pattern_basic.txt.tar.gz)).
+- Modifiez le fichier de patrons afin d'obtenir les meilleures performances possibles.
+  - ajoutez par exemple l'étiquette morpho-syntaxique si vous travaillez sur l'anglais
+  - ajoutez des expressions régulières (mot commençant par une majuscule, entièrement en majuscule…)
+- Enrichissez les corpus avec des ressources extérieures: catégories morphosyntaxiques venant d'un autre étiqueteur, listes d'entités ou de déclencheurs (M./Mme)…
+  - utilisation de l'étiquetage de nltk ou de Stanford CoreNLP
+  - Vous pouvez vous inspirer d'articles récents du domaine: http://www.anthology.aclweb.org/I/I11/I11-1142.pdf, http://www.aclweb.org/anthology/F14-3014, https://noisy-text.github.io/pdf/WNUT09.pdf
+- Comparez vos résultats avec ceux de nltk ou de Stanford CoreNLP
