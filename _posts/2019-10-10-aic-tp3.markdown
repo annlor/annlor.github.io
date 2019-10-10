@@ -83,4 +83,14 @@ The goal of these exercises is to study the vocabulary characteristics in dicume
 
 The files and resources are in /public/master_aic_rei/tp3
 
-The script ri_basic.py 
+The script ri_basic.py contains a few useful functions.
+
+Additional information:
+- [nltk documentation containing preprocessing and POS tagging](http://www.nltk.org/book/ch03.html)
+- [scikitlearn documentation concerning textual processing](http://scikit-learn.org/stable/modules/feature_extraction.html)
+
+To install scikit-learn if you do not have it yet:
+- create a python environment: `python3 -m venv envtp`
+- launch it: `source envtp/bin/activate`
+- install the package: `pip install -U scikit-learn` (update pip if necessary: `pip install --upgrade pip`)
+
