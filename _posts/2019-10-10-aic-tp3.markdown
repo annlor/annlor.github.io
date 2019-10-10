@@ -121,29 +121,27 @@ The goal is to select texts close to a query. In order to compute their similari
 
 ## Term weighting
 
-- Comparer la fréquence des termes dans un texte et leur tfidf. Que constatez-vous en terme de poids par rapport à la fréquence ? Donnez des exemples. À quoi est-ce dû ?
+- Compare the term frequencies in a text and their tfidfs. How does tfidf compare to the frequency?  Give examples. What is it due to?
 
-## Calcul de similarités
-Les requêtes sont en réalité des questions, qui sont dans le répertoire data/questions (la question rd_12_q_2.txt correspond par exemple à la deuxième question sur le document 2).
+## Similarity computing
+The queries are actually questions, that are in the data/questions directory (question rd_12_q_2.txt for example corresponds to the second question on document 2).
 
-Calculez la similarité entre chaque question et les passages de textes issus du document associé.
+Compute the similarity between each question and the text extracts from the associated document.
 
-Le script eval/eval.py vous permet de calculer une métrique d'évaluation appelée Mean Reciprocal Rank (MRR) au rang n:
+The script eval/eval.py computes an evaluation metric called Mean Reciprocal Rank (MRR) at rank n:
 MRR(n) = 1/nbquestions * somme (1/rangcorrect) avec rangcorrect <= n
 
-- Calculez le MRR pour le script courant.
-- Les textes les plus pertinents le sont-ils réellement selon la référence ? Si ce n'est pas le cas, quels sont les
-descripteurs responsables ?
+-  Compute the MRR for the current script.
+- Are the texts considered as most relevant really relevant according to the reference? If not, why?
 
-## Amélioration de la similarité
+## Improved similarity
 
-- Au vu des causes d'erreurs, améliorez la recherche en faisant varier les mesures de similarité, et en trouvant des
-critères et des méthodes pour enlever automatiquement les mauvais descripteurs si il y en a dans les requêtes.
+- Given the causes of errors, improve the search by varying the similarity measures, and finding criteria and methods to automatically remove the bad descriptors if there are any in the queries.
 
-## Expansion de requête
-Pour rapprocher les vecteurs, on peut étendre automatiquement les requêtes avec des mots proches (même famille morphologique ou synonymes), ou on peut appliquer du stemming, ou encore étendre la requête avec les mots de plus fort poids des premiers documents renvoyés (relevance feedback).
+## Query expansion
+To reconcile the vectors, queries can be automaticcally expanded with close words (same morphological family or synonyms), or stemming can be applied, or the query can be extended with the words with the highest weights in the first documents returned (relevance feedback).
 
-Le répertoire `data` contient deux fichiers: `der-families-en.utf8` pour les familles morphologiques et `sem-families-wn.utf8` pour les synonymes.
+The  `data` directory contains two files: `der-families-en.utf8` pour  for morphological families and `sem-families-wn.utf8` for synonyms.
 
-- Ecrivez un programme d'expansion de requête permettant de tester différents types d'expansion. Évaluez et commentez les
+- Write an query expansion program treating different kinds  of expansion.Evaluate and commment on the results.
 résultats.
