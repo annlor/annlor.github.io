@@ -94,3 +94,56 @@ To install scikit-learn if you do not have it yet:
 - launch it: `source envtp/bin/activate`
 - install the package: `pip install -U scikit-learn` (update pip if necessary: `pip install --upgrade pip`)
 
+# 1: vocabulary
+
+## Lexical counts
+
+Generate the list of the 1000 most frequent words in corpus.
+- What are the most common words? Why?
+- Are they good text descriptors ?
+- How could one choose better descriptors?
+
+Generate the list of 1000 most common lemmas or roots.
+- What differences do you notive? Give examples.
+- What problem was solved with lemmas?
+
+Generate the 15 mots common categories.
+- What is the most common category? Is this a good thing? Why?
+- What category(s) would you keep to obtain good descriptors? Why?
+
+## Graphical representation
+
+- Create a graphical representation with plot taking a frequency on the x-axis and the number of tokens and lemmas with this frequency on the y-axis.
+
+#  2: similarity and relevance
+The goal is to select texts close to a query. In order to compute their similarity, they will be represented by the set of terms that you have retained as descriptors, to which a weight will be associated, at least on the document side.
+
+
+## Term weighting
+
+- Comparer la fréquence des termes dans un texte et leur tfidf. Que constatez-vous en terme de poids par rapport à la fréquence ? Donnez des exemples. À quoi est-ce dû ?
+
+## Calcul de similarités
+Les requêtes sont en réalité des questions, qui sont dans le répertoire data/questions (la question rd_12_q_2.txt correspond par exemple à la deuxième question sur le document 2).
+
+Calculez la similarité entre chaque question et les passages de textes issus du document associé.
+
+Le script eval/eval.py vous permet de calculer une métrique d'évaluation appelée Mean Reciprocal Rank (MRR) au rang n:
+MRR(n) = 1/nbquestions * somme (1/rangcorrect) avec rangcorrect <= n
+
+- Calculez le MRR pour le script courant.
+- Les textes les plus pertinents le sont-ils réellement selon la référence ? Si ce n'est pas le cas, quels sont les
+descripteurs responsables ?
+
+## Amélioration de la similarité
+
+- Au vu des causes d'erreurs, améliorez la recherche en faisant varier les mesures de similarité, et en trouvant des
+critères et des méthodes pour enlever automatiquement les mauvais descripteurs si il y en a dans les requêtes.
+
+## Expansion de requête
+Pour rapprocher les vecteurs, on peut étendre automatiquement les requêtes avec des mots proches (même famille morphologique ou synonymes), ou on peut appliquer du stemming, ou encore étendre la requête avec les mots de plus fort poids des premiers documents renvoyés (relevance feedback).
+
+Le répertoire `data` contient deux fichiers: `der-families-en.utf8` pour les familles morphologiques et `sem-families-wn.utf8` pour les synonymes.
+
+- Ecrivez un programme d'expansion de requête permettant de tester différents types d'expansion. Évaluez et commentez les
+résultats.
