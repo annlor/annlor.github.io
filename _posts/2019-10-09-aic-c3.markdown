@@ -6,7 +6,7 @@ categories: ens aic
 ---
 
 Troisième cours: [Introduction à la Recherche d'information](https://annlor.github.io/docs/REI_Intro_RI_AL.pdf)
- [Introduction to Information Retrieval](https://annlor.github.io/docs/REI_Intro_RI_AL_en.pdf)
+ [Introduction to Information Retrieval](https://annlor.github.io/docs/REI_Intro_RI_AL_eng.pdf)
 
 Troisième cours: [Recherche d'information - Modèles](https://annlor.github.io/docs/cours_ri_2.pdf)
  [Information retrieval - Models](https://annlor.github.io/docs/cours_ri_2_eng.pdf)
