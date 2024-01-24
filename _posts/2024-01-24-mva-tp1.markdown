@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "TP 1 MVA - Intelligence Artificielle et Environnement"
+date:   2024-01-24
+categories: ens mva
+---
+
+TP: [TP impacts de l'IA](https://annlor.github.io/docs/TP_MVA.pdf)
