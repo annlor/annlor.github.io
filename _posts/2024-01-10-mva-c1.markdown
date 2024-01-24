@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "cours 1 MVA - Intelligence Artificielle et Environnement"
-date:   2024-01-24
+date:   2024-01-10
 categories: ens mva
 ---
 
